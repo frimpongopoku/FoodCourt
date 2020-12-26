@@ -1,7 +1,4 @@
-//
-//  FoodCourtApp.swift
-//  Shared
-//
+
 //  Created by frimpongOpokuAgyemang on 26/12/2020.
 //
 
@@ -11,7 +8,7 @@ import SwiftUI
 struct FoodCourtApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FoodCourtIndex()
         }
     }
 }

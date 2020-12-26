@@ -11,11 +11,10 @@ struct HomePage: View {
 		ZStack{
 			if !state.isLoading{
 				NavigationView{
-					List(state.foods){ _ in
-						FoodCard()
-							.onTapGesture {
-								state.showDetails.toggle()
-							}
+					List(state.foods){ food in
+						Button{state.showDetails.toggle()}label:{
+							FoodCard(food: food)
+						}
 					}.listStyle(PlainListStyle())
 					.navigationTitle("Snack Haven")
 					.disabled(state.showDetails)

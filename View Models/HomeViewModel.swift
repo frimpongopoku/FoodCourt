@@ -3,7 +3,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 class HomeViewModel : ObservableObject{ // --- This should probably be renamed to a Controller
 	let _URL:String = "https://seanallen-course-backend.herokuapp.com/swiftui-fundamentals/appetizers";
 	@Published var showDetails: Bool = false
@@ -34,7 +34,7 @@ class HomeViewModel : ObservableObject{ // --- This should probably be renamed t
 						return ;
 					}
 					self.foods = foodRequest.request;
-					print("here \(foodRequest.request)")
+//					print("here \(foodRequest.request)")
 					
 				}
 				catch{

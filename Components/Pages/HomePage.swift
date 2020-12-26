@@ -12,7 +12,10 @@ struct HomePage: View {
 			if !state.isLoading{
 				NavigationView{
 					List(state.foods){ food in
-						Button{state.showDetails.toggle()}label:{
+						Button{
+							state.showDetails.toggle()
+							state.selectedFood = food;
+						}label:{
 							FoodCard(food: food)
 						}
 					}.listStyle(PlainListStyle())

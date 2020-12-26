@@ -6,12 +6,11 @@ import SwiftUI
 
 struct DetailModal: View {
 	@ObservedObject var state : HomeViewModel
-	//	@Binding var toggleDetails: Bool
+	
 	var body: some View {
 		VStack{
-			Image("jollof")
-				.resizable()
-				.aspectRatio(contentMode: .fit)
+			ImageFromNetwork(link:state.selectedFood?.imageURL ?? "")
+				.frame(height:200)
 				.overlay(
 					XDismiss(state:state)
 						.padding(5),
@@ -20,22 +19,22 @@ struct DetailModal: View {
 			
 			
 			VStack(alignment:.center){
-				Text("Name of Food")
+				Text(state.selectedFood?.name ?? "Test Food")
 					.fontWeight(.semibold)
 					.padding(.bottom, 20)
-					.font(.title2)
-				Text("Some description of your food \nand shit")
+					.font(.title)
+				Text(state.selectedFood?.description ?? "Some description of the food, neatly written here.\nAnd then some other stuff")
 					.multilineTextAlignment(.center)
 					.font(.body)
 					.foregroundColor(.secondary)
-					.padding(.bottom, 15)
+					.padding(.all, 25)
 				HStack(spacing:25){
 					VStack(alignment:.center,spacing:3){
 						Text("Calories")
 							.foregroundColor(.secondary)
 							.fontWeight(.medium)
 						
-						Text("700")
+						Text("\(state.selectedFood?.calories ?? 0)")
 							.foregroundColor(.secondary)
 					}
 					VStack(alignment:.center,spacing:3){
@@ -44,7 +43,7 @@ struct DetailModal: View {
 							.fontWeight(.medium)
 						
 						
-						Text("11g")
+						Text("\(state.selectedFood?.carbs ?? 0)g")
 							.foregroundColor(.secondary)
 					}
 					VStack(alignment:.center,spacing:3){
@@ -52,7 +51,7 @@ struct DetailModal: View {
 							.foregroundColor(.secondary)
 							.fontWeight(.medium)
 						
-						Text("13g")
+						Text("\(state.selectedFood?.protein ?? 0)g")
 							.foregroundColor(.secondary)
 					}
 				}

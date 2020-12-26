@@ -5,19 +5,39 @@
 import SwiftUI
 
 struct HomePage: View {
+	@ObservedObject var state : HomeViewModel
 	var body: some View {
-		NavigationView{
-			ZStack{
-				List(1...8, id:\.self){ _ in
-					FoodCard()
-				}.listStyle(PlainListStyle())
-			}.navigationTitle(" Snack Haven")
+		
+		ZStack{
+			if !state.isLoading{
+				NavigationView{
+					List(state.foods){ _ in
+						FoodCard()
+							.onTapGesture {
+								state.showDetails.toggle()
+							}
+					}.listStyle(PlainListStyle())
+					.navigationTitle("Snack Haven")
+					.disabled(state.showDetails)
+				}
+				.blur(radius: state.showDetails ? 10: 0)
+				
+				
+				if state.showDetails {
+					DetailModal(state: state)
+				}
+			}
+			else {
+				SpinnerView()
+			}
+		}	.onAppear(){
+			state.fetchFood()
 		}
 	}
 }
 
-struct HomePage_Previews: PreviewProvider {
-	static var previews: some View {
-		HomePage()
-	}
-}
+//struct HomePage_Previews: PreviewProvider {
+//	static var previews: some View {
+//		HomePage(homeState: HomeViewModel)
+//	}
+//}

@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct XDismiss: View {
+	@ObservedObject var state: HomeViewModel
 	var body: some View {
 		Button{
-			
+			state.showDetails.toggle()
 		}label:{
 			ZStack{
 				Circle()
@@ -26,8 +27,8 @@ struct XDismiss: View {
 	}
 }
 
-struct XDismiss_Previews: PreviewProvider {
-	static var previews: some View {
-		XDismiss()
-	}
-}
+//struct XDismiss_Previews: PreviewProvider {
+//	static var previews: some View {
+//		XDismiss()
+//	}
+//}

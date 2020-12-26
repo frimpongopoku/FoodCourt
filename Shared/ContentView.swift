@@ -1,9 +1,5 @@
-//
-//  ContentView.swift
-//  Shared
-//
+
 //  Created by frimpongOpokuAgyemang on 26/12/2020.
-//
 
 import SwiftUI
 

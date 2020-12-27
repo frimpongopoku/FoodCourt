@@ -16,11 +16,13 @@ struct HomePage: View {
 							state.showDetails.toggle()
 							state.selectedFood = food;
 						}label:{
-							FoodCard(food: food)
+							FoodCard(state:state, relatedOrder: state.getItem(with: food.id), food: food )
+						
 						}
 					}.listStyle(PlainListStyle())
 					.navigationTitle("Snack Haven")
 					.disabled(state.showDetails)
+					
 				}
 				.blur(radius: state.showDetails ? 10: 0)
 				

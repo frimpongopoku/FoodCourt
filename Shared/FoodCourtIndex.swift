@@ -13,12 +13,12 @@ struct FoodCourtIndex: View {
 					Text("Home")
 				}
 				
-				Orders().tabItem {
+				Orders(state: homeState).tabItem {
 					Image(systemName: "bag")
 					Text("Orders")
 				}
 				
-				Orders().tabItem {
+				Account().tabItem {
 					Image(systemName: "person")
 					Text("Account")
 				}

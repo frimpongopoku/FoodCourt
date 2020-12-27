@@ -27,6 +27,8 @@
 		9E64244C2597010700C4A751 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64244B2597010700C4A751 /* Food.swift */; };
 		9E6424512597012500C4A751 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6424502597012500C4A751 /* HomeViewModel.swift */; };
 		9E64245725970BBF00C4A751 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64245625970BBF00C4A751 /* SpinnerView.swift */; };
+		9EA35E9F2597B34F00DFE01C /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA35E9E2597B34F00DFE01C /* Cart.swift */; };
+		9EA35EA32597B3CD00DFE01C /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA35EA22597B3CD00DFE01C /* OrderItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		9E64244B2597010700C4A751 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		9E6424502597012500C4A751 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9E64245625970BBF00C4A751 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
+		9EA35E9E2597B34F00DFE01C /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		9EA35EA22597B3CD00DFE01C /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,8 @@
 			children = (
 				9E642445259700D100C4A751 /* FoodRequest.swift */,
 				9E64244B2597010700C4A751 /* Food.swift */,
+				9EA35E9E2597B34F00DFE01C /* Cart.swift */,
+				9EA35EA22597B3CD00DFE01C /* OrderItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -272,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E6424222596EEFE00C4A751 /* DetailModal.swift in Sources */,
+				9EA35E9F2597B34F00DFE01C /* Cart.swift in Sources */,
 				9E64242D2596EF5100C4A751 /* InternetError.swift in Sources */,
 				9E64244C2597010700C4A751 /* Food.swift in Sources */,
 				9E6424512597012500C4A751 /* HomeViewModel.swift in Sources */,
@@ -285,6 +292,7 @@
 				9E6424162596EEA700C4A751 /* Spinner.swift in Sources */,
 				9E6424342596F2E600C4A751 /* HomePage.swift in Sources */,
 				9E6423FA2596EBE700C4A751 /* FoodCourtApp.swift in Sources */,
+				9EA35EA32597B3CD00DFE01C /* OrderItem.swift in Sources */,
 				9E64242E2596EF5100C4A751 /* InternetExplorer.swift in Sources */,
 				9E64241A2596EECF00C4A751 /* FoodCard.swift in Sources */,
 				9E64241E2596EEE200C4A751 /* ImageFromNetwork.swift in Sources */,

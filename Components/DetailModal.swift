@@ -16,19 +16,20 @@ struct DetailModal: View {
 						.padding(5),
 					alignment: .topTrailing)
 			
-			
-			
 			VStack(alignment:.center){
 				Text(state.selectedFood?.name ?? "Test Food")
 					.fontWeight(.semibold)
-					.padding(.bottom, 20)
-					.font(.title)
+					.padding()
+					.font(.title2)
+				
 				Text(state.selectedFood?.description ?? "Some description of the food, neatly written here.\nAnd then some other stuff")
 					.multilineTextAlignment(.center)
 					.font(.body)
 					.foregroundColor(.secondary)
 					.padding(.all, 25)
+				
 				HStack(spacing:25){
+					
 					VStack(alignment:.center,spacing:3){
 						Text("Calories")
 							.foregroundColor(.secondary)
@@ -37,15 +38,17 @@ struct DetailModal: View {
 						Text("\(state.selectedFood?.calories ?? 0)")
 							.foregroundColor(.secondary)
 					}
+					
 					VStack(alignment:.center,spacing:3){
+						
 						Text("Carbs")
 							.foregroundColor(.secondary)
 							.fontWeight(.medium)
 						
-						
 						Text("\(state.selectedFood?.carbs ?? 0)g")
 							.foregroundColor(.secondary)
 					}
+					
 					VStack(alignment:.center,spacing:3){
 						Text("Protein")
 							.foregroundColor(.secondary)
@@ -56,18 +59,27 @@ struct DetailModal: View {
 					}
 				}
 				Spacer()
-				Button{
-					print("We dey we dey and so what?")
-				}label:{
-					Text("Add To Order")
+				if( state.totalPrice > 0){
+					Text("Total: GHS \(state.totalPrice, specifier: "%.2f")")
+						.font(.body)
+						.fontWeight(.bold)
+						.foregroundColor(Color("my-red"))
 						.padding()
-						.padding([.leading, .trailing], 60)
+				}
+				
+				Button{
+					state.addToCart(food: state.selectedFood!)
+				}label:{
+					Text("GHS \(state.selectedFood?.price ?? 0, specifier: "%.2f") - Add To Order")
+						.fontWeight(.bold)
+						.padding()
+						.padding([.leading, .trailing], 30)
+						.font(.system(size: 14 ))
 						.background(Color("my-green"))
 						.cornerRadius(8)
 						.foregroundColor(.white)
-					
-					
 				}
+				
 				Spacer()
 			}
 			Spacer()

@@ -6,7 +6,7 @@ import SwiftUI
 
 struct DetailModal: View {
 	@ObservedObject var state : HomeViewModel
-	
+	@State var show : Bool = false
 	var body: some View {
 		VStack{
 			ImageFromNetwork(link:state.selectedFood?.imageURL ?? "")
@@ -15,6 +15,7 @@ struct DetailModal: View {
 					XDismiss(state:state)
 						.padding(5),
 					alignment: .topTrailing)
+			
 			
 			VStack(alignment:.center){
 				Text(state.selectedFood?.name ?? "Test Food")
@@ -76,8 +77,9 @@ struct DetailModal: View {
 						.padding([.leading, .trailing], 30)
 						.font(.system(size: 14 ))
 						.background(Color("my-green"))
-						.cornerRadius(8)
+						.cornerRadius(5)
 						.foregroundColor(.white)
+						.shadow(radius: 1 )
 				}
 				
 				Spacer()
@@ -91,6 +93,12 @@ struct DetailModal: View {
 		.padding(.leading, 40)
 		.padding(.trailing, 40)
 		.shadow(radius:12 )
+		.onAppear(){
+			self.show.toggle()
+		}
+		.scaleEffect(show ? 1 : 0.5)
+		.opacity( show ? 1 : 0)
+		.animation(.easeInOut(duration: 0.4))
 		
 		
 		

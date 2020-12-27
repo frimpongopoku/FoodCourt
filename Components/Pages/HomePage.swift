@@ -6,6 +6,7 @@ import SwiftUI
 
 struct HomePage: View {
 	@ObservedObject var state : HomeViewModel
+	@State var animateModal : Bool = false
 	var body: some View {
 		
 		ZStack{
@@ -14,6 +15,7 @@ struct HomePage: View {
 					List(state.foods){ food in
 						Button{
 							state.showDetails.toggle()
+							self.animateModal.toggle()
 							state.selectedFood = food;
 						}label:{
 							FoodCard(state:state, relatedOrder: state.getItem(with: food.id), food: food )
@@ -29,6 +31,7 @@ struct HomePage: View {
 				
 				if state.showDetails {
 					DetailModal(state: state)
+						
 				}
 			}
 			else {
